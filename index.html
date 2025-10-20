@@ -15,8 +15,8 @@
 
     body {
       font-family: "Poppins", sans-serif;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
+      overflow-y: auto; /* ✅ Allow scrolling */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -25,6 +25,7 @@
       color: #fff;
       text-align: center;
       position: relative;
+      padding: 60px 20px;
     }
 
     /* Twinkling stars */
@@ -33,11 +34,11 @@
       height: 100%;
       background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat top center;
       animation: moveStars 200s linear infinite;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       z-index: 0;
-      opacity: 0.7;
+      opacity: 0.6;
     }
 
     @keyframes moveStars {
@@ -47,7 +48,7 @@
 
     /* Floating glow effect */
     h1 {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       font-weight: 700;
       letter-spacing: 2px;
       color: #fff;
@@ -93,7 +94,7 @@
     .dropdown {
       position: relative;
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 40px;
       z-index: 2;
     }
 
@@ -106,38 +107,53 @@
       border-radius: 25px;
       cursor: pointer;
       transition: 0.3s ease;
+      backdrop-filter: blur(4px);
     }
 
     .dropbtn:hover {
       background-color: #8ab4f8;
       color: #0b0033;
-      box-shadow: 0 0 15px #8ab4f8;
+      box-shadow: 0 0 20px #8ab4f8;
     }
 
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: rgba(15, 15, 40, 0.95);
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(15, 15, 40, 0.98);
       border: 1px solid #8ab4f8;
-      border-radius: 10px;
-      min-width: 220px;
-      box-shadow: 0 0 15px rgba(138, 180, 248, 0.4);
+      border-radius: 12px;
+      width: 320px;
+      max-height: 400px; /* ✅ Scroll for long list */
+      overflow-y: auto;
+      box-shadow: 0 0 25px rgba(138, 180, 248, 0.4);
       z-index: 3;
       text-align: left;
       padding: 10px 0;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
 
     .dropdown-content a {
       color: #aaccff;
-      padding: 10px 20px;
+      padding: 12px 20px;
       text-decoration: none;
       display: block;
-      transition: 0.2s ease;
+      transition: 0.3s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.4;
     }
 
     .dropdown-content a:hover {
-      background-color: rgba(138, 180, 248, 0.2);
+      background-color: rgba(138, 180, 248, 0.15);
       color: #fff;
+      padding-left: 25px;
+      box-shadow: inset 0 0 10px rgba(138, 180, 248, 0.2);
     }
 
     .dropdown:hover .dropdown-content {
@@ -145,11 +161,19 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.8rem;
+      margin-top: 50px;
+      font-size: 0.85rem;
       color: #888;
       z-index: 1;
+    }
+
+    /* Scrollbar styling inside dropdown */
+    .dropdown-content::-webkit-scrollbar {
+      width: 6px;
+    }
+    .dropdown-content::-webkit-scrollbar-thumb {
+      background: #5f9cff;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -165,21 +189,19 @@
   <div class="dropdown">
     <button class="dropbtn">🌌 My Projects</button>
     <div class="dropdown-content">
-      <a href="https://github.com/Gree606/flutter-app" target="_blank">Kathbath: A cross-platform application for collecting speech data in Indian languages for training models in large scale (Dart-Flutter)</a>
-      <a href="https://github.com/Gree606/voice-ml" target="_blank">AWCV- Automatic Wheelchair vehicle app: An Interactive application that talks to the user in Indian Languages while controlling , answering QnA and navigating the user through a building(Java-Android Studio, Python-Backend)</a>
-      <a href="https://github.com/Gree606/quantum-sim" target="_blank">App to detect early signs of Dyslexia in handwritten text by recognizing flipped characters spelling etc from an image captured(Java-Android Studio, Python-Backend)</a>
-      <a href="https://github.com/Gree606/quantum-sim" target="_blank">OCR App for printed text to speech conversion to help visually impaired(Java-Android Studio, Python-Backend)</a>
-      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Chatbot app: integrates chatGPT and ASR, TTS and MT models in Indian languages to make a convienient human interface(Java-Android Studio, Python-Backend)</a>
-      <a href="https://github.com/Gree606/quantum-sim" target="_blank">SRESHT: Early stage hearing screener app, that tests the hearing at different frequency ad detect signs of hearing Impairment(Java-Android Studio, Python-Backend)</a>
-      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Equilizer App: That can adjust amplitude at different frequency(Java-Android Studio, Python-Backend)</a>
-      <a href="https://github.com/Gree606/quantum-sim" target="_blank">‘Control of A Quadrotor in UAV Configuration to Capture the Ejected Stage of A Launch Vehicle’ at Vikram Sarabhai(Java-Android Studio, Python-Backend)</a>
-      <a href="https://github.com/Gree606/quantum-sim" target="_blank">‘Integral Global Sliding Mode Guidance for Impact Angle Control’ at College of Engineering Trivandrum (MATLAB)</a>
-      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Created a prototype of the braille reader using actuators and raspberry pi </a>
-      
+      <a href="https://github.com/Gree606/flutter-app" target="_blank">Kathbath — Cross-platform speech data app (Flutter)</a>
+      <a href="https://github.com/Gree606/voice-ml" target="_blank">AWCV — Automatic Wheelchair Vehicle app (Java & Python)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Dyslexia Detector — Handwriting analysis using ML</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">OCR App — Printed text to speech (Assistive Tech)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Chatbot App — ASR + MT + GPT integration</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">SRESHT — Early-stage hearing screener</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Equalizer App — Audio frequency control</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Quadrotor Control — Stage capture UAV project</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Impact Angle Control — MATLAB Guidance Project</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Braille Reader Prototype — Raspberry Pi & Actuators</a>
     </div>
   </div>
 
   <footer>© 2025 Greeshma | Floating among the stars 💫</footer>
 </body>
 </html>
-
