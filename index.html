@@ -1,65 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Greeshma | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greeshma | Galaxy Space</title>
+
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: #fafafa;
+    /* Reset */
+    * {
       margin: 0;
       padding: 0;
-      color: #333;
+      box-sizing: border-box;
     }
-    header {
-      background: #0078D7;
-      color: white;
+
+    body {
+      font-family: "Poppins", sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at bottom, #0b0033, #000010);
+      color: #fff;
       text-align: center;
-      padding: 60px 20px;
+      position: relative;
     }
-    h1 { margin: 0; font-size: 2.5em; }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
+
+    /* Twinkling stars */
+    .stars {
+      width: 100%;
+      height: 100%;
+      background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat top center;
+      animation: moveStars 200s linear infinite;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      opacity: 0.7;
     }
-    section { margin-bottom: 40px; }
-    h2 { color: #0078D7; }
-    a { color: #0078D7; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 5000px; }
+    }
+
+    /* Floating glow effect */
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 0 10px #8ab4f8, 0 0 20px #5f9cff, 0 0 30px #3a66ff;
+      z-index: 1;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: #aaccff;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-10px); }
+    }
+
+    /* Button */
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      border: 2px solid #8ab4f8;
+      border-radius: 25px;
+      color: #8ab4f8;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      z-index: 1;
+    }
+
+    a:hover {
+      background-color: #8ab4f8;
+      color: #0b0033;
+      box-shadow: 0 0 15px #8ab4f8;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: #888;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Greeshma</h1>
-    <p>Software Developer | Researcher | IIT Madras Research Park</p>
-  </header>
+  <div class="stars"></div>
 
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>
-        I’m a software developer and researcher specializing in assistive technology,
-        speech processing, and AI applications. My work combines technology and empathy
-        to create inclusive solutions for real-world problems.
-      </p>
-    </section>
+  <h1>Welcome to Greeshma’s Galaxy ✨</h1>
+  <h2>Developer • Dreamer • Explorer</h2>
 
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><b>Speech Annotation Platform</b> – Built for multilingual ASR datasets.</li>
-        <li><b>Assistive Android App</b> – Designed for visually impaired users.</li>
-        <li><b>Flutter Audio Recorder</b> – Custom-built audio collection tool.</li>
-      </ul>
-    </section>
+  <a href="https://github.com/Gree606" target="_blank">Visit my GitHub 🚀</a>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:greeshma@example.com">greeshma@example.com</a></p>
-      <p>GitHub: <a href="https://github.com/Gree606">github.com/Gree606</a></p>
-    </section>
-  </main>
+  <footer>© 2025 Greeshma | Floating among the stars 💫</footer>
 </body>
 </html>
+
