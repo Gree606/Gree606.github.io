@@ -89,6 +89,61 @@
       box-shadow: 0 0 15px #8ab4f8;
     }
 
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-top: 30px;
+      z-index: 2;
+    }
+
+    .dropbtn {
+      background-color: transparent;
+      border: 2px solid #8ab4f8;
+      color: #8ab4f8;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .dropbtn:hover {
+      background-color: #8ab4f8;
+      color: #0b0033;
+      box-shadow: 0 0 15px #8ab4f8;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(15, 15, 40, 0.95);
+      border: 1px solid #8ab4f8;
+      border-radius: 10px;
+      min-width: 220px;
+      box-shadow: 0 0 15px rgba(138, 180, 248, 0.4);
+      z-index: 3;
+      text-align: left;
+      padding: 10px 0;
+    }
+
+    .dropdown-content a {
+      color: #aaccff;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      transition: 0.2s ease;
+    }
+
+    .dropdown-content a:hover {
+      background-color: rgba(138, 180, 248, 0.2);
+      color: #fff;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
     footer {
       position: absolute;
       bottom: 10px;
@@ -101,10 +156,28 @@
 <body>
   <div class="stars"></div>
 
-  <h1>Welcome to Greeshma’s Galaxy ✨</h1>
+  <h1>Welcome to Gree’s Galaxy ✨</h1>
   <h2>Developer • Dreamer • Explorer</h2>
 
   <a href="https://github.com/Gree606" target="_blank">Visit my GitHub 🚀</a>
+
+  <!-- Dropdown Section -->
+  <div class="dropdown">
+    <button class="dropbtn">🌌 My Projects</button>
+    <div class="dropdown-content">
+      <a href="https://github.com/Gree606/flutter-app" target="_blank">Kathbath: A cross-platform application for collecting speech data in Indian languages for training models in large scale (Dart-Flutter)</a>
+      <a href="https://github.com/Gree606/voice-ml" target="_blank">AWCV- Automatic Wheelchair vehicle app: An Interactive application that talks to the user in Indian Languages while controlling , answering QnA and navigating the user through a building(Java-Android Studio, Python-Backend)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">App to detect early signs of Dyslexia in handwritten text by recognizing flipped characters spelling etc from an image captured(Java-Android Studio, Python-Backend)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">OCR App for printed text to speech conversion to help visually impaired(Java-Android Studio, Python-Backend)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Chatbot app: integrates chatGPT and ASR, TTS and MT models in Indian languages to make a convienient human interface(Java-Android Studio, Python-Backend)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">SRESHT: Early stage hearing screener app, that tests the hearing at different frequency ad detect signs of hearing Impairment(Java-Android Studio, Python-Backend)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Equilizer App: That can adjust amplitude at different frequency(Java-Android Studio, Python-Backend)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">‘Control of A Quadrotor in UAV Configuration to Capture the Ejected Stage of A Launch Vehicle’ at Vikram Sarabhai(Java-Android Studio, Python-Backend)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">‘Integral Global Sliding Mode Guidance for Impact Angle Control’ at College of Engineering Trivandrum (MATLAB)</a>
+      <a href="https://github.com/Gree606/quantum-sim" target="_blank">Created a prototype of the braille reader using actuators and raspberry pi </a>
+      
+    </div>
+  </div>
 
   <footer>© 2025 Greeshma | Floating among the stars 💫</footer>
 </body>
